@@ -1,17 +1,14 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router'
+import {Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-
-import App from './App';
+import routes from '../routes';
 
 const Root = ({ store }) => {
   const history = syncHistoryWithStore(browserHistory, store);
   return (
     <Provider store={store}>
-      <Router history={history}>
-        <Route path="/" component={App} />
-      </Router>
+        <Router history={history} routes={routes} />
     </Provider>
     );
 };

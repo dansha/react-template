@@ -1,1 +1,11 @@
 export const DUMMY = "DUMMY";
+export const SET_OPERATION = "SET_OPERATION";
+
+export const ADD_CATEGORY = 'CATEGORY.ADD';
+export const SAVE_CATEGORY = 'CATEGORY.SAVE';
+export const CLOSE_CATEGORY_FORM = 'CATEGORY.FORM.CLOSE';
+export const DELTE_CATEGORY = 'CATEGORY.DELTE';
+export const SET_CATEGORY = 'CATEGORY.SET';
+export const EDIT_CATEGORY = 'CATEGORY.EDIT';
+
+

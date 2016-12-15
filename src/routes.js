@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexRoute, Route } from 'react-router'
 import App from './components/App';
-import Categories from './components/Categories';
+import Categories from './containers/Categories';
 import Locations from './components/Locations';
 
 const routes = (

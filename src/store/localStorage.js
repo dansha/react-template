@@ -1,3 +1,5 @@
+//todo handle only cates and locations
+
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem('state');
@@ -11,10 +13,13 @@ export const loadState = () => {
 };
 
 export const saveState = (state) => {
-  try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem('state', serializedState);
-  } catch (err) {
-    // Ignore write errors.
-  }
+  //todo open
+  // try {
+  //   const serializedState = JSON.stringify(state);
+  //   //const serializedCategories = JSON.stringify(state.categories.list);
+  //   //const serializedState = { categories: serializedCategories};
+  //   localStorage.setItem('state', serializedState);
+  // } catch (err) {
+  //   // Ignore write errors.
+  // }
 };

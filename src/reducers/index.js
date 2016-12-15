@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux';
-import dummy from './dummy';
+import operations from './operations';
 import { routerReducer } from 'react-router-redux'
-
+import { reducer as formReducer } from 'redux-form'
+import categories from './category';
 
 let rootReducer = combineReducers({
-    dummy: dummy,
-    routing: routerReducer 
+    operations,
+    categories,
+    routing: routerReducer,
+    form: formReducer 
 });
 
 export default rootReducer;

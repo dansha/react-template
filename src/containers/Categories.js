@@ -9,7 +9,6 @@ const getSelectedCategory = state => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     let initalValues = {};
 
     if (state.categories.showAdd)

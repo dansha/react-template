@@ -13,13 +13,12 @@ export const loadState = () => {
 };
 
 export const saveState = (state) => {
-  //todo open
-  // try {
-  //   const serializedState = JSON.stringify(state);
-  //   //const serializedCategories = JSON.stringify(state.categories.list);
-  //   //const serializedState = { categories: serializedCategories};
-  //   localStorage.setItem('state', serializedState);
-  // } catch (err) {
-  //   // Ignore write errors.
-  // }
+  try {
+    const serializedState = JSON.stringify(state);
+    //const serializedCategories = JSON.stringify(state.categories.list);
+    //const serializedState = { categories: serializedCategories};
+    localStorage.setItem('state', serializedState);
+  } catch (err) {
+    // Ignore write errors.
+  }
 };

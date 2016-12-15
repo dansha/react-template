@@ -17,13 +17,10 @@ const saveCategory = (state, updatedCategory) => {
     const updatedIndex = state.list.findIndex((cat => cat.id===updatedCategory.CategoryId ));
     const start = state.list.slice(0,updatedIndex);
     const end = state.list.slice(updatedIndex+1, state.list.length);
-    console.log('start' , start)
-    console.log('end' , end)
     const updated = {   id: updatedCategory.CategoryId,
                         name: updatedCategory.CategoryName,
                         selected:false };
     const newArray = start.concat([updated]).concat(end);
-    console.log('newa' , newArray)
     return {
         ...state,
         list: newArray
@@ -40,7 +37,6 @@ export default function reducer(state = initalstate, action = {}) {
                 return ({ ...state, showAdd: false, showEdit: true });
             return state;
         case actions.SAVE_CATEGORY:
-            let categoryId = 0;
             if (!action.payload.CategoryId)
                 return newCategory(state, action.payload);
             else

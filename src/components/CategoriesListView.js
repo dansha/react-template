@@ -7,11 +7,11 @@ import TopNav from './TopNavView'
 class CategoriesListView extends Component {
 
     render() {
-        const { onAddClicked, onDeleteClicked, onEditClicked, onCloseFormClicked, onSaved, categoriesList, showForm,formInitalValues} = this.props;
+        const { onAddClicked, onDeleteClicked, onEditClicked, onCloseFormClicked, onSaved,onRowClicked, categoriesList, showForm,formInitalValues} = this.props;
         let rows = [];
         if (categoriesList) {
             categoriesList.forEach((category) => {
-                rows.push(<CategoryView category={category} key={category.id} onClicked={this.props.onRowClicked} />);
+                rows.push(<CategoryView category={category} key={category.id} onClicked={onRowClicked} />);
             });
         }
         return (
@@ -52,6 +52,10 @@ CategoriesListView.propTypes={
     onDeleteClicked:PropTypes.func.isRequired,
     onEditClicked:PropTypes.func.isRequired,
     onCloseFormClicked: PropTypes.func.isRequired,
+    onSaved: PropTypes.func.isRequired,
+    categoriesList: PropTypes.array.isRequired,
+    showForm: PropTypes.bool,
+    formInitalValues:PropTypes.object
 }
 
 export default CategoriesListView;

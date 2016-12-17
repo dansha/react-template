@@ -1,4 +1,3 @@
-import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import CategoriesView from '../components/CategoriesListView';
 import * as actions from '../actions';
@@ -11,8 +10,6 @@ const getSelectedCategory = state => {
 const mapStateToProps = (state) => {
     let initalValues = {};
 
-    if (state.categories.showAdd)
-        initalValues = {};
     if (state.categories.showEdit) {
         const currentCategoy = getSelectedCategory(state);
         if (currentCategoy) {
@@ -23,13 +20,11 @@ const mapStateToProps = (state) => {
         }
     }
     return ({
-        showForm: state.categories.showAdd || state.categories.showEdit,
         categoriesList: state.categories.list,
+        showForm: state.categories.showAdd || state.categories.showEdit,
         formInitalValues: initalValues
     });
 }
-
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -42,12 +37,8 @@ const mapDispatchToProps = (dispatch) => {
         onEditClicked: () => {
             dispatch(actions.editCategory());
         },
-
         onCloseFormClicked: () => {
             dispatch(actions.closeCategoryForm());
-        },
-        onShowAdd: () => {
-
         },
         onSaved: (values) => {
             dispatch(actions.saveCategory(values));
@@ -57,17 +48,9 @@ const mapDispatchToProps = (dispatch) => {
         onRowClicked: (id) => {
             dispatch(actions.setCategory(id));
         },
-        onDeleteCategory: () => {
-            console.log('a')
-            dispatch(actions.deleteCategory());
-        }
-
     }
 }
 
 const Categories = connect(mapStateToProps, mapDispatchToProps)(CategoriesView);
-Categories.contextTypes = {
-    store: React.PropTypes.object.isRequired
-}
 
 export default Categories;

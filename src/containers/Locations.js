@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
         showForm: state.locations.showAdd || state.locations.showEdit,
         formInitalValues: initalValues,
         categories: state.categories.list,
-        showMap: state.locations.showMap
+        showMapFor: state.locations.showMap
 
     });
 }
@@ -55,8 +55,8 @@ const mapDispatchToProps = (dispatch) => {
         onRowClicked: (id) => {
             dispatch(actions.setLocation(id));
         },
-        onMapClicked : () =>{
-            dispatch(actions.showMap());       
+        onMapClicked : (lat,lon) =>{
+            dispatch(actions.showMap(lat,lon));       
         }
     }
 }

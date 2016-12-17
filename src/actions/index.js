@@ -44,8 +44,10 @@ export const setLocation = (id) => ({
 export const editLocation = () => (
     { type: actions.EDIT_LOCATION }
 );
-export const showMap = () => (
-    { type: actions.SHOW_MAP }
+export const showMap = (lat,lon) => ({ 
+    type: actions.SHOW_MAP,
+    payload:{lat:lat,lon:lon} 
+    }
 );
 
 

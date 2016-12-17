@@ -17,7 +17,7 @@ const LocationView = (props) => {
             <td><button className="btn btn-primary" onClick={
                 (e) => {
                     e.stopPropagation();
-                    onMapClicked()
+                    onMapClicked(location.lon,location.lat);
                 }
             } >map</button></td>
         </tr>

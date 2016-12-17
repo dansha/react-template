@@ -16,7 +16,7 @@ class CategoriesListView extends Component {
         }
         return (
             <div>
-                <TopNav onAdd={onAddClicked} onDelete={onDeleteClicked} onEdit={onEditClicked} />
+                <TopNav onAdd={onAddClicked} onDelete={onDeleteClicked} onEdit={onEditClicked} full={false}/>
                 <div className="container" >
                     <div className="row">
                         <table className="table" id="categoriesTable">

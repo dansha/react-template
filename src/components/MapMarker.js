@@ -3,7 +3,7 @@ import React, {PropTypes, Component} from 'react';
 
 import {mapMarkerStyle} from  './mapMarkerStyle';
 
-export default class MyGreatPlace extends Component {
+export default class MapMarker extends Component {
   static propTypes = {
     text: PropTypes.string
   };

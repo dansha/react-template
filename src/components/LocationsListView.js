@@ -5,10 +5,16 @@ import { Modal } from 'react-bootstrap';
 import LocationForm from './LocationForm';
 import Map from './LocationMap.js';
 
+const mapVisible = (showMap) => {
+    if ((showMap !== null) && (typeof showMap === 'object'))
+        return true;
+    return false;
+}
+
 const LocationsListView = props => {
     const { onAddClicked, onDeleteClicked, onEditClicked, onCloseFormClicked,
         onSaved, onRowClicked, onMapClicked, locationsList, showForm,
-        formInitalValues, categories, showMap } = props;
+        formInitalValues, categories, showMapFor } = props;
 
     let rows = [];
     if (locationsList) {
@@ -18,7 +24,7 @@ const LocationsListView = props => {
     }
     return (
         <div>
-            <TopNav onAdd={onAddClicked} onDelete={onDeleteClicked} onEdit={onEditClicked} />
+            <TopNav onAdd={onAddClicked} onDelete={onDeleteClicked} onEdit={onEditClicked} full={true}/>
             <div className="container">
                 <div className="row">
                     <table className="table " id="locationTable">
@@ -49,12 +55,12 @@ const LocationsListView = props => {
                     </Modal>
                 </div>
                 <div className="row">
-                    <Modal show={showMap} onHide={onCloseFormClicked} >
+                    <Modal show={mapVisible(showMapFor)} onHide={onCloseFormClicked} >
                         <Modal.Header closeButton>
                             <Modal.Title>Map</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <Map />
+                            <Map lat={showMapFor && showMapFor.lat} lon={showMapFor && showMapFor.lon}/>
                         </Modal.Body>
                     </Modal>
                 </div>
@@ -63,6 +69,8 @@ const LocationsListView = props => {
     );
 }
 
+
+
 LocationsListView.propTypes = {
     onAddClicked: PropTypes.func.isRequired,
     onDeleteClicked: PropTypes.func.isRequired,
@@ -70,7 +78,7 @@ LocationsListView.propTypes = {
     onCloseFormClicked: PropTypes.func.isRequired,
     onSaved: PropTypes.func.isRequired,
     onMapClicked: PropTypes.func.isRequired,
-    showMap: PropTypes.bool,
+    showMapFor: PropTypes.object,
     locationsList: PropTypes.array.isRequired,
     showForm: PropTypes.bool,
     formInitalValues: PropTypes.object,

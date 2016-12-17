@@ -3,12 +3,13 @@ import TopNav from './TopNavView'
 import LocationView from './LocationView';
 import { Modal } from 'react-bootstrap';
 import LocationForm from './LocationForm';
+import Map from './LocationMap.js';
 
 const LocationsListView = props => {
-    const { onAddClicked, onDeleteClicked, onEditClicked, onCloseFormClicked, 
-            onSaved, onRowClicked, onMapClicked, locationsList, showForm, 
-            formInitalValues,categories } = props;
-            
+    const { onAddClicked, onDeleteClicked, onEditClicked, onCloseFormClicked,
+        onSaved, onRowClicked, onMapClicked, locationsList, showForm,
+        formInitalValues, categories, showMap } = props;
+
     let rows = [];
     if (locationsList) {
         locationsList.forEach((loc) => {
@@ -47,6 +48,16 @@ const LocationsListView = props => {
                         </Modal.Body>
                     </Modal>
                 </div>
+                <div className="row">
+                    <Modal show={showMap} onHide={onCloseFormClicked} >
+                        <Modal.Header closeButton>
+                            <Modal.Title>Map</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Map />
+                        </Modal.Body>
+                    </Modal>
+                </div>
             </div>
         </div>
     );
@@ -59,6 +70,7 @@ LocationsListView.propTypes = {
     onCloseFormClicked: PropTypes.func.isRequired,
     onSaved: PropTypes.func.isRequired,
     onMapClicked: PropTypes.func.isRequired,
+    showMap: PropTypes.bool,
     locationsList: PropTypes.array.isRequired,
     showForm: PropTypes.bool,
     formInitalValues: PropTypes.object,

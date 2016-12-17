@@ -53,7 +53,7 @@ export default function reducer(state = initalstate, action = {}) {
             else
                 return saveLocation(state, action.payload);
         case actions.CLOSE_LOCATION_FORM:
-            return ({ ...state, showAdd: false, showEdit: false });
+            return ({ ...state, showAdd: false, showEdit: false,showMap:false });
         case actions.DELTE_LOCATION:
             const updatedList = state.list.filter(loc =>
                 (!loc.selected)
@@ -66,6 +66,8 @@ export default function reducer(state = initalstate, action = {}) {
             return {
                 list: newList
             };
+        case actions.SHOW_MAP:
+            return ({...state,showMap:true}); 
         default:
             return state;
     }

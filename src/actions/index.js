@@ -24,13 +24,13 @@ export const editCategory = () => (
 
 
 
-export const addLocation = () => (
-    { type: actions.ADD_LOCATION });
-export const saveLocation = (location) => (
-    {
-        type: actions.SAVE_LOCATION,
-        payload: location
-    });
+export const addLocation = () => ({
+    type: actions.ADD_LOCATION
+});
+export const saveLocation = (location) => ({
+    type: actions.SAVE_LOCATION,
+    payload: location
+});
 export const closeLocationForm = () => ({
     type: actions.CLOSE_LOCATION_FORM
 });
@@ -42,7 +42,11 @@ export const setLocation = (id) => ({
     payload: id
 });
 export const editLocation = () => (
-    { type: actions.EDIT_LOCATION });
+    { type: actions.EDIT_LOCATION }
+);
+export const showMap = () => (
+    { type: actions.SHOW_MAP }
+);
 
 
 

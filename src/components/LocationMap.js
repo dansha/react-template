@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import GoogleMap from 'google-map-react';
 import Marker from './MapMarker';
 
-export default class SimpleMapPage extends Component {
+export default class LocationMap extends Component {
   static defaultProps = {
     center: { lat: 59.938043, lng: 30.337157 },
     zoom: 9,

@@ -6,7 +6,17 @@ To run `npm start`
 
 
 
-## Table of Contents
+## Points
+
+- Project uses Create-React-App for bootstrapping the development
+- State is stored in redux store
+- Uses react-router-redux to sync react-router with the redux store
+- uses react-bootstrap for formmating SOME of the bootstrap elemnts
+- lodash was used only for throtteling saving store updates to browser
+- Uses google-map-react to show map
+
+
+
 
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)

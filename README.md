@@ -15,6 +15,13 @@ To run `npm start`
 - lodash was used only for throtteling saving store updates to browser
 - Uses google-map-react to show map
 
+## Strucure
+- code is under `src` folder
+- `public` contains assests
+- `src/store` handeles configuring store (for dev) and saving state to localStorage . (todo - save only locations and categories)
+- other files are ordered in traditonal folder strucure (components, containers,action,reducers
+
+
 
 
 

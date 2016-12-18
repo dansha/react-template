@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-//import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, {  PropTypes } from 'react';
 
 import GoogleMap from 'google-map-react';
 import Marker from './MapMarker';

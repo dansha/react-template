@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-const TopNavView = ({onMenuClicked, onAdd, onDelete, onEdit, full}) => (
+const TopNavView = ({onMenuClicked, onAdd, onDelete, onEdit, full,onOrder}) => (
     <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container">
             <div className="navbar-header">
@@ -21,9 +21,9 @@ const TopNavView = ({onMenuClicked, onAdd, onDelete, onEdit, full}) => (
                         <li className="dropdown">
                             <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by <span className="caret" /></a>
                             <ul className="dropdown-menu">
-                                <li onClick={() => onMenuClicked('alpha')}><a href="#">Alphabetical </a></li>
-                                <li onClick={() => onMenuClicked('grouped')}><a href="#">Grouped</a></li>
-                                <li onClick={() => onMenuClicked('ungrouped')}><a href="#">Un grouped</a></li>
+                                <li onClick={() =>onOrder('alpha') }><a href="#">Alphabetical </a></li>
+                                <li onClick={() => onOrder('grouped')}><a href="#">Grouped</a></li>
+                                <li onClick={() => onOrder('ungrouped')}><a href="#">Un grouped</a></li>
                             </ul>
                         </li>
                     }
@@ -47,6 +47,7 @@ TopNavView.propTypes = {
     onAdd: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired,
+    onOrder: PropTypes.func,
     full: PropTypes.bool
 }
 

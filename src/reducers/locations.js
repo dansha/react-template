@@ -19,12 +19,12 @@ const newLocation = (state, newLocation) => {
 }
 
 const saveLocation = (state, updatedLocation) => {
-    const updatedIndex = state.list.findIndex((loc => loc.id === updatedLocation.LocationId));
+    const updatedIndex = state.list.findIndex((loc => loc.id === updatedLocation.id));
     const start = state.list.slice(0, updatedIndex);
     const end = state.list.slice(updatedIndex + 1, state.list.length);
     const updated = {
-        id: updatedLocation.LocationId,
-        name: updatedLocation.LocationName,
+        id: updatedLocation.id,
+        name: updatedLocation.name,
         address: updatedLocation.address,
         lat: updatedLocation.lat,
         lon: updatedLocation.lon,
@@ -48,7 +48,7 @@ export default function reducer(state = initalstate, action = {}) {
                 return ({ ...state, showAdd: false, showEdit: true });
             return state;
         case actions.SAVE_LOCATION:
-            if (!action.payload.LocationId)
+            if (!action.payload.id)
                 return newLocation(state, action.payload);
             else
                 return saveLocation(state, action.payload);
@@ -66,9 +66,10 @@ export default function reducer(state = initalstate, action = {}) {
             return {
                 list: newList
             };
-        case actions.SHOW_MAP:{
+        case actions.SHOW_MAP:
             return ({...state,showMap:{lat:action.payload.lat,lon:action.payload.lon}}); 
-        }
+        case actions.ORDER_LOCATIONS:
+            return ({...state, order:action.payload});
         default:
             return state;
     }

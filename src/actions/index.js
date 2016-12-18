@@ -19,11 +19,9 @@ export const setCategory = (id) => ({
     type: actions.SET_CATEGORY,
     payload: id
 });
-export const editCategory = () => (
-    { type: actions.EDIT_CATEGORY });
-
-
-
+export const editCategory = () => ({
+    type: actions.EDIT_CATEGORY
+});
 export const addLocation = () => ({
     type: actions.ADD_LOCATION
 });
@@ -44,11 +42,15 @@ export const setLocation = (id) => ({
 export const editLocation = () => (
     { type: actions.EDIT_LOCATION }
 );
-export const showMap = (lat,lon) => ({ 
+export const showMap = (lat, lon) => ({
     type: actions.SHOW_MAP,
-    payload:{lat:lat,lon:lon} 
-    }
-);
+    payload: { lat: lat, lon: lon }
+});
+export const orderLocations = (order) => ({
+    type: actions.ORDER_LOCATIONS,
+    payload: order
+});
+
 
 
 

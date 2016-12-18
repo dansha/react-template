@@ -23,8 +23,17 @@ const mapStateToProps = (state) => {
             };
         }
     }
+    let list = state.locations.list.slice(0);
+    if (state.locations.order==='alpha'){
+        let res=1;
+        list.sort( (a,b) => {
+            if (a.name<b.name) 
+                res = - 1;
+            return res;
+        });
+    }
     return ({
-        locationsList: state.locations.list,
+        locationsList: list,
         showForm: state.locations.showAdd || state.locations.showEdit,
         formInitalValues: initalValues,
         categories: state.categories.list,
@@ -57,6 +66,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onMapClicked : (lat,lon) =>{
             dispatch(actions.showMap(lat,lon));       
+        },
+        onOrder: (order) =>{
+            dispatch(actions.orderLocations(order));
         }
     }
 }

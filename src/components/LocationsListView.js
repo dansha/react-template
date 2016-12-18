@@ -14,7 +14,7 @@ const mapVisible = (showMap) => {
 const LocationsListView = props => {
     const { onAddClicked, onDeleteClicked, onEditClicked, onCloseFormClicked,
         onSaved, onRowClicked, onMapClicked, locationsList, showForm,
-        formInitalValues, categories, showMapFor } = props;
+        formInitalValues, categories, showMapFor,onOrder } = props;
 
     let rows = [];
     if (locationsList) {
@@ -24,7 +24,7 @@ const LocationsListView = props => {
     }
     return (
         <div>
-            <TopNav onAdd={onAddClicked} onDelete={onDeleteClicked} onEdit={onEditClicked} full={true}/>
+            <TopNav onAdd={onAddClicked} onDelete={onDeleteClicked} onEdit={onEditClicked} full={true} onOrder={onOrder}/>
             <div className="container">
                 <div className="row">
                     <table className="table " id="locationTable">
@@ -82,7 +82,8 @@ LocationsListView.propTypes = {
     locationsList: PropTypes.array.isRequired,
     showForm: PropTypes.bool,
     formInitalValues: PropTypes.object,
-    categories: PropTypes.array.isRequired
+    categories: PropTypes.array.isRequired,
+    onOrder: PropTypes.func.isRequired
 }
 
 export default LocationsListView;

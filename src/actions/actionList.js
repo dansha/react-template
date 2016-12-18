@@ -14,5 +14,5 @@ export const SET_LOCATION = 'LOCATION.SET';
 export const EDIT_LOCATION = 'LOCATION.EDIT';
 export const SHOW_MAP = 'LOCATION.SHOW.MAP';
 export const ORDER_LOCATIONS = 'LOCATION.ORDER';
-
+export const FILTER_LOCATIONS = 'LOCATION.FILTER';
 

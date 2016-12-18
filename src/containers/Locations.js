@@ -24,6 +24,10 @@ const mapStateToProps = (state) => {
         }
     }
     let list = state.locations.list.slice(0);
+    if(state.locations.filter){
+        if (state.locations.filter)
+            list=list.filter( loc => loc.category=== state.locations.filter);
+    }
     if (state.locations.order==='alpha'){
         let res=1;
         list.sort( (a,b) => {
@@ -69,6 +73,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onOrder: (order) =>{
             dispatch(actions.orderLocations(order));
+        },
+        onFilter: category =>{
+            dispatch (actions.filterLocations(category));
         }
     }
 }

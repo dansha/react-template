@@ -50,6 +50,10 @@ export const orderLocations = (order) => ({
     type: actions.ORDER_LOCATIONS,
     payload: order
 });
+export const filterLocations = (category) => ({
+    type: actions.FILTER_LOCATIONS,
+    payload: category
+});
 
 
 

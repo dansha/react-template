@@ -70,6 +70,8 @@ export default function reducer(state = initalstate, action = {}) {
             return ({...state,showMap:{lat:action.payload.lat,lon:action.payload.lon}}); 
         case actions.ORDER_LOCATIONS:
             return ({...state, order:action.payload});
+        case actions.FILTER_LOCATIONS:
+            return ({...state, filter:action.payload});
         default:
             return state;
     }
